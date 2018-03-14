@@ -1,0 +1,51 @@
+1. Subclass of Thread to define run method
+
+public class testThread {
+
+    public static void main(String[] args){
+        WorkThread th = new WorkThread();
+        System.out.println("Main thread:"+Thread.currentThread().getName());//this is main thread
+        th.start(); //Thread start is used to start a new Thread and call the Thread run method. The main thread will not blocked to wait new Thread done
+        //if use th.run() here, it turns out to call a normal method of run of WorkThread, which is still run under the main thread.
+    }
+
+    //inner static class
+    static class WorkThread extends Thread{
+        public void run(){
+            try {
+                System.out.println("thread start to run:"+Thread.currentThread().getName());
+                sleep(1000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+2. Pass runnable object to a thread
+
+public class testThread {
+
+    public static void main(String[] args){
+        WorkRunable runable = new testThread().new WorkRunable(0);
+        System.out.println("Main thread:"+Thread.currentThread().getName());
+        new Thread(runable).start(); //call start to create a new thread
+    }
+
+    //inner class
+    class WorkRunable implements Runnable{
+        int value;
+        int max = 10000;
+        public WorkRunable(int value){
+            this.value = value;
+        }
+        public void run(){
+            System.out.println("thread start to run:"+Thread.currentThread().getName());
+            
+            while (this.value<max)
+                this.value++;
+        }
+    }
+}
