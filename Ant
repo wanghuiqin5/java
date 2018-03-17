@@ -1,0 +1,4 @@
+Generate default build.xml with Eclispe:
+ -> Project - export - General/ant buildfiles
+ 
+ General build.xml:
