@@ -49,3 +49,39 @@ public class testThread {
         }
     }
 }
+
+3. Difference between process and thread
+ - all used to realize mitilple task
+ - each process has differernt address space, while threads in a process share the same address space
+ - process is heavry weight, while thread is light weight
+ - it is easy for threads communication
+ - a process can contain multiple threads
+ - thread is the smallest unit to run
+ - each thread has its' call stack
+ - each time only one thread run
+ 
+ 
+ 4. State of thread
+  new, runnable, not-runnable(blocked), terminated
+  
+   new: call thread.start() to create a thread
+   runnable: when thread resource is ready
+   not-runnable: 
+   
+5. Methods
+ join: wait the thread to completed the task
+ 
+ 
+ 7. Thread pool
+  - A group of thread created to improve performance
+  
+  ExecutorService threadPool = Executors.newCachedThreadPool();
+  threadPool.execute(new WorkThread());
+  
+  static class WorkThread implements Runnable{
+       public void run(){
+            System.out.println("after work thread wake up for:"+Thread.currentThread().getName());
+        }
+    }
+    
+  
