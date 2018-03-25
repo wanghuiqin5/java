@@ -1,1 +1,45 @@
+1. Usage of reflaction
+It makes possible to inpect class, methods, fields at runtime. Do not need to know the class/method name at compile time. Init object, invoke method
+and get/set fields at runtime.
 
+2. Methods and fields
+
+Class<?> myclass = Class.forName("mypackage.MyClass");//class name can read from other place as var
+
+//get public constructor
+Constructor<?> cons = c.getConstructor(); //without parameters
+Constructor<?> cons = c.getConstructor(int.class);//with an int parameter
+
+//init object
+Object myObject = cons.newInstance();
+Object myObject = cons.newInstance(new Integer(1)); //primitive type should be wrapped by wrapper class
+
+
+//get methods
+Method myFun = myclass.getDeclaredMethod("myFun")//function without paramter;
+Method myFun = myclass.getDeclaredMethod("myFun",new Class[]{String.class, int.class})//function with paramter;
+
+//invoke methods
+myFun.invoke(myObject);//method without parameter
+myFun.invoke(myObject, "stringPara",new Integer(1));//method with parameter, primitive parameter should be wrapped with wrapper class
+
+
+//return value
+If primitive value returned by a method, the Method.invoke will return the object with type in wrapper class.
+int fun(){}
+Method fun = myclass.getDeclaredMethod("fu ")//function without paramter;
+Integer rc = (Integer)fun.invoke(myObject);
+
+
+//get/set filds
+int var1=1;
+Field var1 = myclass.getDeclaredField("var1");
+var1.get(myObject);
+var1.set(myObject, new Integre(2));
+
+ //
+ getFields() //all public fields in the class, without super classes
+ getMethods()
+ 
+ 
+        
