@@ -84,4 +84,79 @@ public class testThread {
         }
     }
     
+  8 notify, wait
+   Thread.sleep() will not release the lock for an object
+   notify, wait, notfiyAll are methods from Object. Used to control a object in multiple thread environment
+   
+   
+    static List<String> q = new ArrayList<String>();
+    final static int max = 5;
+    
+    public static void main(String[] args) throws InterruptedException{
+        ExecutorService threadpool = Executors.newCachedThreadPool();
+        threadpool.execute(new Producer());
+        threadpool.execute(new Consumer());
+        
+    }
+    
+    
+    static class Producer implements Runnable{
+        public void run(){
+            while(true){
+                synchronized(q){
+                    System.out.println("producer come into synchronized");
+                    if(q.size()==max){
+                        System.out.println("producer max wait now");
+                        try {
+                            q.wait();
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                    else{
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        q.add("s");
+                        q.notify();
+                        System.out.println("producer add one to queue");
+                    }
+                }
+            }
+        }
+    }
   
+    static class Consumer implements Runnable{
+        public void run(){
+            while(true){
+                synchronized(q){
+                    System.out.println("Consumer come into synchronized");
+                    if(q.size()==0){
+                        System.out.println("Consumer queue size=0");
+                        try {
+                            q.wait();
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                    else{
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        q.remove(0);
+                        q.notify();
+                        System.out.println("Consumer remove one to queue");
+                    }
+                }
+            }
+        }
+    }
+
