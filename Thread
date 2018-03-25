@@ -86,7 +86,7 @@ public class testThread {
     
   8 notify, wait
    Thread.sleep() will not release the lock for an object
-   notify, wait, notfiyAll are methods from Object. Used to control a object in multiple thread environment
+   notify, wait, notfiyAll are methods from Object. Used to control a object in multiple thread environment. Must used in sychronized block.
    
    
     static List<String> q = new ArrayList<String>();
