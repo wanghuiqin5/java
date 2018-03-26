@@ -1,0 +1,5 @@
+1. Class Modifiers
+public class - can be accessed by all classes, and can initilized with new
+class - class with default mofifier, can only be access by same package classes
+public final class - class can not be inherited
+public abstract class - class can not create object, must realize sub-class
