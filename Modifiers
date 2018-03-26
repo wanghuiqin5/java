@@ -3,3 +3,14 @@ public class - can be accessed by all classes, and can initilized with new
 class - class with default mofifier, can only be access by same package classes
 public final class - class can not be inherited
 public abstract class - class can not create object, must realize sub-class
+
+
+static class - can only be declared for inner class
+
+
+2. Constructor modifiers
+public - can be accessed by all classes
+protected - can be accessed by itself and all sub-classes
+private - can only be accessed by itself
+
+3.
