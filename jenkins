@@ -1,5 +1,5 @@
 1. How to fetch codes from multiple git repository
-
+Install plugin: Multiple SCMs plugin
 2. How to restart/exit jenkins
  url: /restart, /exit
  
