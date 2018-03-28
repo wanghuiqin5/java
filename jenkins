@@ -1,5 +1,10 @@
 1. How to fetch codes from multiple git repository
 Install plugin: Multiple SCMs plugin
+
 2. How to restart/exit jenkins
  url: /restart, /exit
+
+3. How to send emial notification after build
+ - need configure admin email address, and the smtp address, port, authentication (the email address should be enabled with authorization code)
+ 
  
