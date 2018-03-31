@@ -1,0 +1,48 @@
+@WebServlet is a Java annotation from servlet 3.0. 
+
+With this annotation, it replaces the servlet specification in web.xml
+
+What's web.xml - used to define which servlet to be deployed and the url map of the servlet.
+
+Normally the package dirctory of a servlet application:
+-Myapp
+  -WEB-INFO - this is meta information directly, which is not accessible for browser, but can be used in internal
+    -lib - third party libraries relied by this app
+    -classes - java classes file
+    -web.xml - used by container to determin how to deploy and execute the app
+ -META-INFO
+   - MANIFEST.MF
+ -index.html, xx.js, xx.jsp
+ 
+ 
+ web.xml to config a servlet:
+ <servlet>
+    <servlet-name>myServlet</servlet-name>
+    <servlet-class>com.xx</servlet-class>
+    <load-on-startup>1</load-on-startup>  //when to load the servlet, nagetive value or unsepcified, means load the servlet when first request come
+                                          // value > 0 means load servlet when start the app, high value hight priority
+</servlet>
+ <servlet-mapping>
+    <servlet-name>myServlet</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  
+  
+  If annotation is sued for myServlet:
+  
+  @WebServlet("/*.html")
+  public class myServlet extends HttpServlet{
+  
+  web.xml is optional for the app.
+  <?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+  version="3.1" 
+  metadata-complete="false"   //indicate to detect annotation 
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+</web-app>
+
+  
+  
