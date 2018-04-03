@@ -1,0 +1,2 @@
+1. let, const
+Use let o replace var, let only effective in the declare block
