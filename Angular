@@ -1,0 +1,3 @@
+NgModule is the root module for angular
+
+Need to import this for module declare: import { NgModule } from '@angular/core'
