@@ -1,0 +1,9 @@
+npm is a package manager of javascript. It can be used to search, install and public codes. npm packaged in node.js
+
+npm -v
+npm install module_name
+npm install module_name -g  //install globally, such as you install angular cli, so it can run from command line, the package is installed in /usr/local
+
+
+ng list -g
+ng list module_name
