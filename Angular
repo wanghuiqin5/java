@@ -1,3 +1,29 @@
 NgModule is the root module for angular
-
+Module file uses @NgModule annotation to declare a module
 Need to import this for module declare: import { NgModule } from '@angular/core'
+
+Component to define a view with template
+@Component, needs to import {Component} from '@angular/core'
+A component with:
+  - selector: - css selector
+  - template :``, or templateUrl:'./xx.html'
+  - styleUrls:['./xx.css','./xxx.css']
+
+
+Angular cli:
+ ng new project_name
+ ng serve --open //run under the project path
+ 
+ Syntax:
+ {{var}} - binding wiht double curly braces
+ [(ngModule)]='var'  - two way binding, you should import FormsModule form @angular/forms
+ 
+ 
+ lifecycle hooking of angular:
+ ngOnInit
+ 
+ 
+ 
+ pipes in angular (pipe can be used to transform and format the string shown in html)
+ - uppercase - format string to uppercase, eg {{name | uppercase}}, this will be shown in uppercase of name
+ - date - format date, eg, currentDate = new Date(), {{currentDate | date}}, pipe with parameter following by a colon 
