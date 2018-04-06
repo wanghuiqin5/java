@@ -17,6 +17,9 @@ Angular cli:
  Syntax:
  {{var}} - binding wiht double curly braces
  [(ngModule)]='var'  - two way binding, you should import FormsModule form @angular/forms
+ [class.myclass]='condition' - control the css class
+ @Input() var;  - import {input} from @angular/core, property binding: [var]="xx"
+ @Injectable - declare service import {Injectable} from @angluar/core
  
  
  lifecycle hooking of angular:
@@ -27,3 +30,10 @@ Angular cli:
  pipes in angular (pipe can be used to transform and format the string shown in html)
  - uppercase - format string to uppercase, eg {{name | uppercase}}, this will be shown in uppercase of name
  - date - format date, eg, currentDate = new Date(), {{currentDate | date}}, pipe with parameter following by a colon 
+
+
+
+todo:
+get f()
+seperate module why not work
+rxjs, oberverble
