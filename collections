@@ -1,0 +1,17 @@
+Java collections framework
+- Collectiton & array
+  - Collection is not fixed in size, which can be auto increase and shrink
+  - Collection can not hold primitive type data,which can hold the wrapper class
+- Collection includes 3 types
+  - Orded lists: 
+    - List: 
+      - ArrayList (array implementation of list)
+      - LinkedList (linked, node have pre and next pointer)
+      - Vector (synchronized)
+        - Stack (LIFO, push(),pop(),peek(),empty())
+    - Queue (Queue is an interface)
+      - LinkedList (it is used to implement the Queue interface)
+      - Deque
+  - Directions/maps:  hold data in key-value
+    - 
+  - Set: unordered, can not be duplicated 
